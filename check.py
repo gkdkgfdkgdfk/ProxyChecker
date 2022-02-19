@@ -49,13 +49,14 @@ def start():
     for proxiesd in objectproxies:
         try:
             r = requests.get('https://httpbin.org/ip', proxies={f'{proxytype}' : f'{proxiesd}'},timeout=200)
-            data = json.load(r.text)
+            data = json.loads(r.text)   
             if data['origin'] == proxiesd:
                 print("\033[32mGood Proxy: ", proxiesd)
                 with open("goods.txt","a+")as w:
                     w.write(f"{proxiesd}\n")
                 pass
             else:
+                
                 print("\033[31mBad Proxy ",proxiesd)
         except:
             print("\033[31mBad Proxy ",proxiesd)
@@ -64,5 +65,4 @@ if __name__ == '__main__':
     thread = Process(target=start(), name="Checking Thread")
     thread.start()
     thread.join()
-
 
