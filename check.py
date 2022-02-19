@@ -63,12 +63,17 @@ def Hosts():
     except:
         sys.exit("\033[31mRemove all white space newlines in check.txt\033[0m")
 
+def AantalLijnen():
+    with open("check.txt","r")as f:
+        daddy = f.readlines()
+    return daddy
+
 def start():
     proxytype = Type()
     proxiesz3ntl3 = Hosts()
-
+    aantallijnen = AantalLijnen()
     if proxytype == "http":
-        
+        print(f"Checking {aantallijnen} amount of proxies\nWith {mst} seconds timeout for each proxy\n")
         for host,port in proxiesz3ntl3.items():
             try:
                 print(f"\033[36mChecking Proxy: \033[0m{host}:{port}")  
