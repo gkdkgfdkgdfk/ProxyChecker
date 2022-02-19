@@ -66,7 +66,7 @@ def Hosts():
 def AantalLijnen():
     with open("check.txt","r")as f:
         daddy = f.readlines()
-    return daddy
+    return len(daddy)
 
 def start():
     proxytype = Type()
