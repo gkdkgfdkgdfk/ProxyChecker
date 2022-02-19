@@ -44,22 +44,25 @@ def ReadProxies(*, file):
 
 def start():
     proxytype = Type() 
-    
+    with open(f"check.txt","r")as f:
+        filelenght = len(f.readlines())
+    print(f"\033[0mChecking {filelenght} proxies\n")
+
     objectproxies = ReadProxies(file='check.txt')
     for proxiesd in objectproxies:
         try:
             r = requests.get('https://httpbin.org/ip', proxies={f'{proxytype}' : f'{proxiesd}'},timeout=200)
             data = json.loads(r.text)   
             if data['origin'] == proxiesd:
-                print("\033[32mGood Proxy: ", proxiesd)
+                print("\033[32mGood Proxy: \033[0m", proxiesd)
                 with open("goods.txt","a+")as w:
                     w.write(f"{proxiesd}\n")
                 pass
             else:
                 
-                print("\033[31mBad Proxy ",proxiesd)
+                print("\033[31mBad Proxy \033[0m",proxiesd)
         except:
-            print("\033[31mBad Proxy ",proxiesd)
+            print("\033[31mBad Proxy 033[0m",proxiesd)
 
 if __name__ == '__main__':
     thread = Process(target=start(), name="Checking Thread")
