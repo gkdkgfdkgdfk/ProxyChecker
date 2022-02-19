@@ -3,6 +3,11 @@ Check if your IP can be tunneled through a proxy which supports the HTTP or HTTP
 
 # Usage
 ```elixir
+// checking http is much faster than https
+python3 check.py http
+python3 check.py https
+```
+```elixir
 // Drop down all your proxies inside of check.txt
 // The software will automaticly save the good proxies in goods.txt
 
