@@ -51,9 +51,6 @@ def Type():
 
 def Hosts():
     try:
-        global fucker
-        fucker = {}
-
         with open(f"check.txt","r")as f:
             filedata = f.read()
             filedatalist = filedata.split("\n")
