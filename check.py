@@ -62,7 +62,7 @@ def start():
                 
                 print("\033[31mBad Proxy \033[0m",proxiesd)
         except:
-            print("\033[31mBad Proxy 033[0m",proxiesd)
+            print("\033[31mBad Proxy \033[0m",proxiesd)
 
 if __name__ == '__main__':
     thread = Process(target=start(), name="Checking Thread")
