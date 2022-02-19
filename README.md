@@ -19,7 +19,7 @@ def start():
     for proxiesd in objectproxies:
         try:
             r = requests.get('https://httpbin.org/ip', proxies={f'{proxytype}' : f'{proxiesd}'},timeout=200)
-            data = json.load(r.text)
+            data = json.loads(r.text)
             if data['origin'] == proxiesd:
                 print("\033[32mGood Proxy: ", proxiesd)
                 with open("goods.txt","a+")as w:
