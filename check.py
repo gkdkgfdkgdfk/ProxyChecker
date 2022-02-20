@@ -77,7 +77,7 @@ def start():
         for host,port in proxiesz3ntl3.items():
             try:
                 print(f"\033[36mChecking Proxy: \033[0m{host}:{port}")  
-                r = requests.get('http://ip-api.com/json', proxies={f'http' : f'{host}:{port}'},timeout=mst)
+                r = requests.get('http://ip-api.com/json', proxies={f'http' : f'http://{host}:{port}'},timeout=mst)
 
                 data = json.loads(r.text) 
                 
@@ -94,7 +94,7 @@ def start():
         for host,port in proxiesz3ntl3.items():
             try:
                 print(f"\033[36mChecking Proxy: \033[0m{host}:{port}")  
-                r = requests.get('https://httpbin.org/ip', proxies={f'https' : f'{host}:{port}'},timeout=mst)
+                r = requests.get('https://httpbin.org/ip', proxies={f'https' : f'http://{host}:{port}'},timeout=mst)
 
                 data = json.loads(r.text) 
                 
